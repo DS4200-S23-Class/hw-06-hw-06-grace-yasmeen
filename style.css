@@ -2,3 +2,34 @@
 body{
 	font-family: Arial;
 }
+
+h1 {
+	text-align: center;
+}
+
+/* make columns */
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.middle {
+	display: flex;
+	flex-direction: column;
+	width: 33%;
+}
+
+
+.right{
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+}
+
