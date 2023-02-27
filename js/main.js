@@ -31,3 +31,138 @@ const FRAME3 = d3.select("#vis3")
 				  .attr("id", "frame");
 
 
+
+function build_interactive_scatter_one() {
+
+	d3.csv("data/iris.csv").then((data) => {
+
+	// find the max X
+	const MAX_X = d3.max(data, (d) => { return parseInt(d.Petal_Length); });
+	// find the max Y
+	const MAX_Y = d3.max(data, (d) => { return parseInt(d.Sepal_Length); });
+
+
+
+	//domain and range
+	const X_SCALE = d3.scaleLinear()
+					.domain([0, (MAX_X + 1)])
+					.range([0, VIS_WIDTH]);
+	const Y_SCALE = d3.scaleLinear()
+					.domain([(MAX_Y + 1) ,0])
+					.range([0, VIS_HEIGHT]);
+
+
+	const color = d3.scaleOrdinal()
+    .domain(["setosa", "versicolor", "virginica" ])
+    .range([ "#440154ff", "#21908dff", "#fde725ff"])
+
+
+	FRAME1.selectAll("circle")
+			.data(data)
+			.enter()
+			.append("circle")
+				.attr("cx", (d) => {return d.Petal_Length})
+				.attr("cy", (d) => {return d.Sepal_Length})
+				.attr("r", 5)
+				.style("fill", (d) => { return color(d.Species)});
+
+
+	// Add x-axis to vis1
+	FRAME1.append("g")
+		.attr("transform", "translate(" + MARGINS.left + ","
+			+ (VIS_HEIGHT + MARGINS.top) + ")")
+		.call(d3.axisBottom(X_SCALE).ticks(10))
+			.attr("font-size", '20px')
+		
+	// Add y-axis to vis1
+	FRAME1.append("g")
+		.attr("transform", "translate(" + MARGINS.left + ","
+			+ (MARGINS.bottom) + ")")
+		.call(d3.axisLeft(Y_SCALE).ticks(10))
+			.attr("font-size", '20px');
+
+
+});
+}
+
+
+function build_interactive_scatter_two() {
+
+	d3.csv("data/iris.csv").then((data) => {
+
+	// find the max X
+	const MAX_X = d3.max(data, (d) => { return parseInt(d.Petal_Width); });
+	// find the max Y
+	const MAX_Y = d3.max(data, (d) => { return parseInt(d.Sepal_Width); });
+
+
+
+	//domain and range
+	const X_SCALE = d3.scaleLinear()
+					.domain([0, (MAX_X + 1)])
+					.range([0, VIS_WIDTH]);
+	const Y_SCALE = d3.scaleLinear()
+					.domain([(MAX_Y + 1) ,0])
+					.range([0, VIS_HEIGHT]);
+
+
+	const color = d3.scaleOrdinal()
+    .domain(["setosa", "versicolor", "virginica" ])
+    .range([ "#440154ff", "#21908dff", "#fde725ff"])
+
+
+	FRAME2.selectAll("circle")
+			.data(data)
+			.enter()
+			.append("circle")
+				.attr("cx", (d) => {return d.Petal_Width})
+				.attr("cy", (d) => {return d.Sepal_Width})
+				.attr("r", 5)
+				.style("fill", (d) => { return color(d.Species)});
+
+
+	// Add x-axis to vis1
+	FRAME2.append("g")
+		.attr("transform", "translate(" + MARGINS.left + ","
+			+ (VIS_HEIGHT + MARGINS.top) + ")")
+		.call(d3.axisBottom(X_SCALE).ticks(10))
+			.attr("font-size", '20px')
+		
+	// Add y-axis to vis1
+	FRAME2.append("g")
+		.attr("transform", "translate(" + MARGINS.left + ","
+			+ (MARGINS.bottom) + ")")
+		.call(d3.axisLeft(Y_SCALE).ticks(10))
+			.attr("font-size", '20px');
+
+
+});
+}
+
+
+const xValues = ["Setosa", "Versicolor", "Virginica"];
+const yValues = [50, 50, 50];
+const barColors = [ "#440154ff", "#21908dff", "#fde725ff"];
+
+new Chart("vis3", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  }
+});
+
+build_interactive_scatter_one();
+build_interactive_scatter_two();
+
+
+
+
+
+
+
+
+
