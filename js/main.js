@@ -128,14 +128,14 @@ function build_interactive_scatter_two() {
 	FRAME2.append("g")
 		.attr("transform", "translate(" + MARGINS.left + ","
 			+ (VIS_HEIGHT + MARGINS.top) + ")")
-		.call(d3.axisBottom(X_SCALE).ticks(10))
+		.call(d3.axisBottom(X_SCALE).ticks(5))
 			.attr("font-size", '20px')
 		
 	// Add y-axis to vis1
 	FRAME2.append("g")
 		.attr("transform", "translate(" + MARGINS.left + ","
 			+ (MARGINS.bottom) + ")")
-		.call(d3.axisLeft(Y_SCALE).ticks(10))
+		.call(d3.axisLeft(Y_SCALE).ticks(3))
 			.attr("font-size", '20px');
 
 
