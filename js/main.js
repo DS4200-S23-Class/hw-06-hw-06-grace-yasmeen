@@ -81,7 +81,7 @@ function build_interactive_scatter_one() {
 	FRAME1.append("g")
 		.attr("transform", "translate(" + MARGINS.left + ","
 			+ (MARGINS.bottom) + ")")
-		.call(d3.axisLeft(Y_SCALE).ticks(8))
+		.call(d3.axisLeft(Y_SCALE).ticks(14))
 			.attr("font-size", '20px');
 
 
@@ -128,14 +128,14 @@ function build_interactive_scatter_two() {
 	FRAME2.append("g")
 		.attr("transform", "translate(" + MARGINS.left + ","
 			+ (VIS_HEIGHT + MARGINS.top) + ")")
-		.call(d3.axisBottom(X_SCALE).ticks(5))
+		.call(d3.axisBottom(X_SCALE).ticks(10))
 			.attr("font-size", '20px')
 		
 	// Add y-axis to vis1
 	FRAME2.append("g")
 		.attr("transform", "translate(" + MARGINS.left + ","
 			+ (MARGINS.bottom) + ")")
-		.call(d3.axisLeft(Y_SCALE).ticks(3))
+		.call(d3.axisLeft(Y_SCALE).ticks(15))
 			.attr("font-size", '20px');
 
 
@@ -143,23 +143,31 @@ function build_interactive_scatter_two() {
 }
 
 
-// const xValues = ["Setosa", "Versicolor", "Virginica"];
-// const yValues = [50, 50, 50];
-// const barColors = [ "#440154ff", "#21908dff", "#fde725ff"];
+//BAR PLOT//
+function build_interactive_bar_three() {
 
-// new Chart("vis3", {
-//   type: "bar",
-//   data: {
-//     labels: xValues,
-//     datasets: [{
-//       backgroundColor: barColors,
-//       data: yValues
-//     }]
-//   }
-// });
+var xValues = ["Setosa", "Versicolor", "Virginica"];
+var yValues = [50, 50, 50];
+var barColors = [ "#440154ff", "#21908dff", "#fde725ff"];
+
+new Chart("vis3", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options:{
+  	legend: {display: false}
+  }
+});
+}
 
 build_interactive_scatter_one();
 build_interactive_scatter_two();
+build_interactive_bar_three();
 
 
 
