@@ -41,3 +41,21 @@ h3 {
 	width: 40%;
 }
 
+.selected{
+	opacity: 80%;
+  stroke: orange;
+  stroke-width: 3px;
+}
+
+.setosa{
+	fill:#440154ff;
+	opacity:50%;
+}
+.versicolor{
+	fill: #21908dff;
+	opacity:50%;
+}
+.virginica{
+	fill:#fde725ff;
+	opacity:50%;
+}
