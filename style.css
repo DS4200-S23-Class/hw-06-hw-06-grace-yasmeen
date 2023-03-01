@@ -3,6 +3,7 @@ body{
 	font-family: Arial;
 }
 
+/* header style */
 h1 {
 	text-align: center;
 }
@@ -34,20 +35,20 @@ h3 {
 	width: 33%;
 }
 
-
 .right{
 	display: flex;
 	flex-direction: column;
 	width: 40%;
 }
 
+/* style for selected points */
 .selected{
 	opacity: 100% !important;
   stroke: orange;
   stroke-width: 3px;
 }
 
-
+/* colors for species type */
 .setosa{
 	fill:#440154ff;
 	opacity:50%;
