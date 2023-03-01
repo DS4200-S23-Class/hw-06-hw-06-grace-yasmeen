@@ -103,10 +103,10 @@ const FRAME3 = d3.select("#vis3")
 
 	//domain and range
 	const X_SCALE2 = d3.scaleLinear()
-					.domain([0, (MAX_X + 1)])
+					.domain([0, 5])
 					.range([0, VIS_WIDTH]);
 	const Y_SCALE2 = d3.scaleLinear()
-					.domain([(MAX_Y + 1) ,0])
+					.domain([3 ,0])
 					.range([0, VIS_HEIGHT]);
 
 
@@ -144,7 +144,7 @@ const FRAME3 = d3.select("#vis3")
 
 	// add brushing
 	FRAME2.call(d3.brush()
-	  		.extent( [ [0,0], [VIS_WIDTH,VIS_HEIGHT] ])
+	  		.extent( [ [0,0], [VIS_WIDTH+40,FRAME_HEIGHT-50] ])
 	  		.on("start brush", updateChart));
 
 

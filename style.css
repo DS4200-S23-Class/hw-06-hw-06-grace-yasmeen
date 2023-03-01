@@ -42,7 +42,7 @@ h3 {
 }
 
 .selected{
-	opacity: 80%;
+	opacity: 100;
   stroke: orange;
   stroke-width: 3px;
 }
