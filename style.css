@@ -42,10 +42,11 @@ h3 {
 }
 
 .selected{
-	opacity: 100;
+	opacity: 100% !important;
   stroke: orange;
   stroke-width: 3px;
 }
+
 
 .setosa{
 	fill:#440154ff;
